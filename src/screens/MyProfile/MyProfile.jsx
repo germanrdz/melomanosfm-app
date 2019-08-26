@@ -15,6 +15,10 @@ const MyProfile = ({ user }) => (
         <li><strong>Spotify URI:</strong><span><a href={user.spotifyUrl}>{user.spotifyUrl}</a></span></li>
       </ul>
     </div>
+
+    <div className="playlists mt-5">
+      <h2>My Playlists</h2>
+    </div>
   </div>
 );
 

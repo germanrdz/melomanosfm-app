@@ -5,10 +5,14 @@ import { Link } from 'react-router-dom';
 import { FiHeadphones } from 'react-icons/fi';
 import { logoutUser } from '../../ducks/session';
 
+import { storage } from '../../services/storage';
+
 import './header.scss';
 
 const Header = ({ user, logoutUserAction }) => {
   const logoutClickHandler = () => {
+
+    storage.clear();
     logoutUserAction();
   };
 
