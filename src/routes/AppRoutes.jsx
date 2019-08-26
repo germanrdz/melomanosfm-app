@@ -11,21 +11,30 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import Home from '../screens/Home/Home';
 
-const HomeRoutes = () => (
-  <Router>
-    <Header />
+import AuthSuccess from '../components/Auth/AuthSuccess';
+import AuthError from '../components/Auth/AuthError';
 
-    <Container>
-      <Switch>
-        <Route path="/" exact component={Home} />
+function HomeRoutes() {
+  return (
+    <Router>
+      <Header />
 
-        { /* Catch-All */ }
-        <Redirect from="*" to="/" />
-      </Switch>
-    </Container>
+      <Container>
+        <Switch>
+          <Route path="/" exact component={Home} />
 
-    <Footer />
-  </Router>
-);
+          { /* Spotify Auth Routes */ }
+          <Route path="/auth/success/:accessToken/:refreshToken" component={AuthSuccess} />
+          <Route path="/auth/error/:errorType" component={AuthError} />
+
+          { /* Catch-All */ }
+          <Redirect from="*" to="/" />
+        </Switch>
+      </Container>
+
+      <Footer />
+    </Router>
+  )
+}
 
 export default HomeRoutes;

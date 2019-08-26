@@ -1,38 +1,22 @@
-/* eslint-disable quote-props */
 import React from 'react';
-import { connect } from 'react-redux';
+import LoginWithSpotifyButton from '../../components/LoginWithSpotifyButton/LoginWithSpotifyButton';
 
 import './home.scss';
 
-const Home = () => {
+function Home() {
   return (
     <div id="home" className="text-center">
       <div className="hero">
         <h1>Melomanos FM</h1>
         <p className="lead">
-          Deja que la música nos una.
+          Abre tu cuenta y descubre nueva musica.
         </p>
         <div className="actions mt-5">
-          <button>Login</button>
+          <LoginWithSpotifyButton />
         </div>
       </div>
     </div>
   );
 };
-
-/*
-Home.propTypes = {
-  session: sessionType.isRequired,
-};
-
-const mapStateToProps = ({ session }) => ({
-  session,
-});
-
-export default connect(
-  mapStateToProps,
-  {},
-)(Home);
-*/
 
 export default Home;

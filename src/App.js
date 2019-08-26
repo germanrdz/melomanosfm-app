@@ -5,6 +5,7 @@ import AppRoutes from './routes/AppRoutes';
 import reduxStore from './context/redux-store';
 
 import './bootstrap-custom.scss';
+import './global.scss';
 
 require('dotenv').config();
 

@@ -3,24 +3,17 @@
 $headings-font-family:Nunito;
 
 $enable-grid-classes:true;
-$primary:#E94057;
-$secondary:#A0B7BC;
-$success:#37BD74;
-$danger:#E8286B;
-$info:#7EBCFA;
-$warning:#FF9B37;
-$light:#EEF0F2;
-$dark:#3C4055;
-$gray: #CED4DA;
-$light-gray:#F9F9F9;
-$lightest-gray: #F8f9FA;
-$silver: #E5E5E5;
-$body-text: #212121;
-$text-muted: #A6A6A6;
-$subheader-text: #7F7F7F;
+$primary:#2f3c48;
+$secondary:#6f7f8c;
+$success:#3e4d59;
+$danger:#cc330d;
+$info:#5c8f94;
+$warning:#6e9fa5;
+$light:#eceeec;
+$dark:#1e2b37;
 $enable-gradients:false;
 $spacer:1.2rem;
-$border-width:1px;
-$btn-border-radius:1.35rem;
+$border-width:3px;
+$btn-border-radius:0;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
