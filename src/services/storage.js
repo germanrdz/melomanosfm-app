@@ -1,11 +1,11 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable import/prefer-default-export */
-export const localStorage = {
+export const storage = {
   _headers: '',
   _user: '',
 
   // Global Helpers
-  clearStorage() {
+  clear() {
     sessionStorage.clear();
   },
 
@@ -21,15 +21,11 @@ export const localStorage = {
       return;
     }
 
-    // TODO: Refactor X-TrackerToken?
     this._headers = {
       'access-token': respHeaders['access-token'],
       client: respHeaders.client,
       uid: respHeaders.uid,
       expiry: respHeaders.expiry,
-
-      first_name: respHeaders.first_name,
-      'X-TrackerToken': respHeaders['X-TrackerToken'],
     };
 
     sessionStorage.setItem('authHeaders', JSON.stringify(this._headers));

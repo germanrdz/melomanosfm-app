@@ -1,9 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import LoginWithSpotifyButton from '../../components/LoginWithSpotifyButton/LoginWithSpotifyButton';
+import MyProfile from '../MyProfile/MyProfile';
 
 import './home.scss';
 
-function Home() {
+function Home({ session }) {
+  if (session.user) {
+    return <MyProfile />
+  }
+
   return (
     <div id="home" className="text-center">
       <div className="hero">
@@ -19,4 +25,8 @@ function Home() {
   );
 };
 
-export default Home;
+const mapStateToProps = ({ session }) => ({
+  session,
+});
+
+export default connect(mapStateToProps, {})(Home);

@@ -24,7 +24,7 @@ function HomeRoutes() {
           <Route path="/" exact component={Home} />
 
           { /* Spotify Auth Routes */ }
-          <Route path="/auth/success/:accessToken/:refreshToken" component={AuthSuccess} />
+          <Route path="/auth/success/:token" component={AuthSuccess} />
           <Route path="/auth/error/:errorType" component={AuthError} />
 
           { /* Catch-All */ }

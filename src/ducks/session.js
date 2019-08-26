@@ -1,22 +1,29 @@
+import { storage } from '../services/storage';
+
 // Actions
-export const TOKENS_UPDATED = 'session/TOKENS_UPDATED';
+export const TOKEN_UPDATED = 'session/TOKEN_UPDATED';
 export const AUTHENTICATION_FAILED = 'session/AUTHENTICATION_FAILED';
+
 export const LOGIN_SUCCESS = 'session/LOGIN_SUCCESS';
 export const LOGIN_FAILED = 'session/LOGIN_FAILED';
 
 // Reducer
 const initialState = {
-  accessToken: '',
-  refreshToken: '',
+  headers: storage.headers || '',
+  user: storage.user || null,
 };
 
 export default function reducer(state = initialState, action) {
   switch(action.type) {
-    case TOKENS_UPDATED:
+    case LOGIN_SUCCESS:
       return {
         ...state,
-        accessToken: action.accessToken,
-        refreshToken: action.refreshToken,
+        user: action.user,
+      };
+    case TOKEN_UPDATED:
+      return {
+        ...state,
+        headers: { token: action.token },
       };
     default:
       return state;
@@ -24,12 +31,18 @@ export default function reducer(state = initialState, action) {
 }
 
 // Action Creators
-export function updateTokens(accessToken, refreshToken) {
+export function updateToken(token) {
   return {
-    type: TOKENS_UPDATED,
-    accessToken,
-    refreshToken,
+    type: TOKEN_UPDATED,
+    token,
   }
+}
+
+export function loginSuccess(user) {
+  return {
+    type: LOGIN_SUCCESS,
+    user,
+  };
 }
 
 // Epics

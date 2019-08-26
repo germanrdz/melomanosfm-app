@@ -1,7 +1,33 @@
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom'
+import decode from "jwt-decode";
 
-function AuthSuccess() {
-  return (<h1>Auth Success</h1>);
+import { storage } from '../../services/storage';
+import { loginSuccess, updateToken } from '../../ducks/session';
+
+const AuthSuccess = ({ match, loginSuccessAction, updateTokenAction }) => {
+  useEffect(() => {
+    const token = match.params.token;
+    const user = decode(token);
+
+    storage.headers = {
+      'access-token': token,
+    };
+    storage.user = user;
+
+    loginSuccessAction(user);
+    updateTokenAction(token);
+  }, []);
+
+  return (<Redirect to="/" />);
 }
 
-export default AuthSuccess;
+export default connect(
+  null,
+  {
+    loginSuccessAction: loginSuccess,
+    updateTokenAction: updateToken,
+  },
+)(AuthSuccess);
