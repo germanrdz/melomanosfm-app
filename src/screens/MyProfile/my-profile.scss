@@ -1,0 +1,23 @@
+#my-profile {
+  .picture {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .info {
+    display: inline-block;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      padding-left: 20px;
+    }
+
+    strong {
+      margin-right: 3px;
+    }
+  }
+}
