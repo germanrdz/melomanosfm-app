@@ -3396,6 +3396,11 @@ dotenv@6.2.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.2.0.tgz#941c0410535d942c8becf28d3f357dbd9d476064"
   integrity sha512-HygQCKUBSFl8wKQZBSemMywRWcEDNidvNbjGVyZu3nbZ8qq9ubiPoGLMdRDpfSrpkkm9BXYFkpKxxFX38o/76w==
 
+ducks-reducer@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/ducks-reducer/-/ducks-reducer-1.0.4.tgz#a124d775bc70d1379343d7276554fec3edd91806"
+  integrity sha512-OgZozTdi23i+bK9XSc1eiBNpxkCv+9OCrHWrpficwfqfX2FN5TfG45eNjiW/AmmSR8BJYyJcNUExFPcFpAXOIQ==
+
 duplexer@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.1.tgz#ace6ff808c1ce66b57d1ebf97977acb02334cfc1"

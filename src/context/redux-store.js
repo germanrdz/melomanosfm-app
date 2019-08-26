@@ -1,8 +1,10 @@
 import { applyMiddleware, compose, createStore } from 'redux';
 import { createEpicMiddleware } from 'redux-observable';
+import ducksReducer from 'ducks-reducer';
 
-import rootReducer from '../reducers';
+import * as session from '../ducks/session';
 
+const rootReducer = ducksReducer({ session });
 const epicMiddleware = createEpicMiddleware();
 
 // eslint-disable-next-line no-underscore-dangle
