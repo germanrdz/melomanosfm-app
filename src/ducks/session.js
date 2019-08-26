@@ -6,6 +6,7 @@ export const AUTHENTICATION_FAILED = 'session/AUTHENTICATION_FAILED';
 
 export const LOGIN_SUCCESS = 'session/LOGIN_SUCCESS';
 export const LOGIN_FAILED = 'session/LOGIN_FAILED';
+export const LOGOUT_USER = 'session/LOGOUT_USER';
 
 // Reducer
 const initialState = {
@@ -25,6 +26,12 @@ export default function reducer(state = initialState, action) {
         ...state,
         headers: { token: action.token },
       };
+    case LOGOUT_USER:
+      console.log('asdasdasd');
+      return {
+        headers: '',
+        user: null,
+      };
     default:
       return state;
   }
@@ -43,6 +50,12 @@ export function loginSuccess(user) {
     type: LOGIN_SUCCESS,
     user,
   };
+}
+
+export function logoutUser() {
+  return {
+    type: LOGOUT_USER,
+  }
 }
 
 // Epics
