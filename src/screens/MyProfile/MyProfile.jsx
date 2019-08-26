@@ -6,7 +6,7 @@ import './my-profile.scss';
 const MyProfile = ({ user }) => (
   <div id="my-profile">
     <h1>My Profile</h1>
-    <img src={user.image} className="picture" />
+    <img src={user.image} className="picture" alt={user.name} />
     <div className="info">
       <ul>
         <li><strong>Display name:</strong><span>{user.name}</span></li>
