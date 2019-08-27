@@ -10,7 +10,7 @@ const Playlists = ({ playlists }) => (
         playlists.map(p => (
           <li key={p.id}>
             <img src={p.images[0].url} alt={p.images[0].name} />
-            <a target="_blank" href={p.external_urls.spotify}>{p.name}</a>
+            <a target="_blank" rel="noopener noreferrer" href={p.external_urls.spotify}>{p.name}</a>
           </li>
         ))
       }
