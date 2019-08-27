@@ -1,19 +1,17 @@
-import axios from 'axios';
-import { localStorage } from './sessionStorage';
+import Axios from 'axios-observable';
+import { storage } from './storage';
 
-const ApiClient = axios.create({
+const ApiClient = Axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
 
 ApiClient.interceptors.request.use(
   (config) => {
-    const { headers } = localStorage;
+    const { headers } = storage;
     const newConfig = config;
 
     if (headers) {
       newConfig.headers['access-token'] = headers['access-token'];
-      newConfig.headers['client'] = headers['client'];
-      newConfig.headers['uid'] = headers['uid'];
     }
 
     return newConfig;
@@ -23,3 +21,5 @@ ApiClient.interceptors.request.use(
 
 // TODO: response interceptor checking for possible failed auth
 /* ApiClient.interceptos.response.use() */
+
+export default ApiClient;
