@@ -16,7 +16,7 @@ ApiClient.interceptors.request.use(
 
     return newConfig;
   },
-  error => Promise.reject(error),
+  (error) => Promise.reject(error),
 );
 
 // TODO: response interceptor checking for possible failed auth
