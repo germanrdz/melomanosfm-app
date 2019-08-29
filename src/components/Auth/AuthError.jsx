@@ -1,9 +1,10 @@
 import React from 'react';
+import ReactRouterPropTypes from 'react-router-prop-types';
+
 import { Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const printError = errorType => {
-  console.log(errorType);
+const printError = (errorType) => {
   let errorMsg = '';
 
   switch (errorType) {
@@ -11,18 +12,18 @@ const printError = errorType => {
       errorMsg = 'Spotify API state mismatch';
       break;
     case 'invalid_token':
-      errorMsg = 'Authentication token for Spotify API is invalid.'
+      errorMsg = 'Authentication token for Spotify API is invalid.';
       break;
     case 'user_create':
       errorMsg = 'An error has ocurred while creating the user in our database';
       break;
     default:
-      errorMsg = 'An unknown error has ocurred during authentication.'
+      errorMsg = 'An unknown error has ocurred during authentication.';
       break;
   }
 
-  return <Alert variant="danger">{errorMsg}</Alert>
-}
+  return <Alert variant="danger">{errorMsg}</Alert>;
+};
 
 const AuthError = ({ match }) => (
   <>
@@ -32,5 +33,9 @@ const AuthError = ({ match }) => (
     <Link to="/">Go back home.</Link>
   </>
 );
+
+AuthError.propTypes = {
+  match: ReactRouterPropTypes.match.isRequired,
+};
 
 export default AuthError;

@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom'
-import decode from "jwt-decode";
+import { Redirect } from 'react-router-dom';
+import decode from 'jwt-decode';
 
 import { storage } from '../../services/storage';
 import { loginSuccess, updateToken } from '../../ducks/session';
@@ -22,7 +22,7 @@ const AuthSuccess = ({ match, loginSuccessAction, updateTokenAction }) => {
   }, []);
 
   return (<Redirect to="/" />);
-}
+};
 
 export default connect(
   null,
