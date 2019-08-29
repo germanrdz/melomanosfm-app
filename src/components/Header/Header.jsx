@@ -52,8 +52,12 @@ const Header = ({ user, logoutUserAction }) => {
   );
 };
 
+Header.defaultProps = {
+  user: null,
+};
+
 Header.propTypes = {
-  user: userPropType.isRequired,
+  user: userPropType,
   logoutUserAction: PropTypes.func.isRequired,
 };
 

@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 
 export const userPropType = PropTypes.shape({
-  _id: PropTypes.number,
+  _id: PropTypes.string,
   name: PropTypes.string,
   email: PropTypes.string,
   image: PropTypes.string,
@@ -18,9 +18,9 @@ export const playlistPropType = PropTypes.shape({
   href: PropTypes.string,
   id: PropTypes.string,
   images: PropTypes.arrayOf(PropTypes.shape({
-    height: PropTypes.string,
+    height: PropTypes.number,
     url: PropTypes.string,
-    width: PropTypes.string,
+    width: PropTypes.number,
   })),
   name: PropTypes.string,
   owner: PropTypes.shape({
