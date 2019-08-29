@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FiHeadphones } from 'react-icons/fi';
-import { logoutUser } from '../../ducks/session';
 
+import { userPropType } from '../../constants/custom-proptypes';
+import { logoutUser } from '../../ducks/session';
 import { storage } from '../../services/storage';
 
 import './header.scss';
 
 const Header = ({ user, logoutUserAction }) => {
   const logoutClickHandler = () => {
-
     storage.clear();
     logoutUserAction();
   };
@@ -49,6 +49,10 @@ const Header = ({ user, logoutUserAction }) => {
       </Navbar>
     </div>
   );
+};
+
+Header.propTypes = {
+  user: userPropType.isRequired,
 };
 
 const mapStateToProps = ({ session }) => ({
