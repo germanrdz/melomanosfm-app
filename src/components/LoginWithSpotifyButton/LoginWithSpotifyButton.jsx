@@ -10,8 +10,9 @@ const LoginWithSpotifyButton = () => (
   <Button
     variant="info"
     size="lg"
-    onClick={handleOnClick}>
-      <FaSpotify className="mr-2" />
+    onClick={handleOnClick}
+  >
+    <FaSpotify className="mr-2" />
       Inicia sesión con tu cuenta de Spotify
   </Button>
 );
