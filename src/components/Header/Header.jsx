@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -53,6 +54,7 @@ const Header = ({ user, logoutUserAction }) => {
 
 Header.propTypes = {
   user: userPropType.isRequired,
+  logoutUserAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ session }) => ({
