@@ -42,3 +42,10 @@ export const playlistPropType = PropTypes.shape({
   type: PropTypes.string,
   uri: PropTypes.string,
 });
+
+export const session = PropTypes.shape({
+  headers: PropTypes.shape({
+    'access-token': PropTypes.string,
+  }),
+  user: userPropType,
+});

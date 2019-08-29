@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import LoginWithSpotifyButton from '../../components/LoginWithSpotifyButton/LoginWithSpotifyButton';
 import MyProfile from '../MyProfile/MyProfile';
-
+import { userPropType } from '../../constants/custom-proptypes';
 import './home.scss';
 
-function Home({ session }) {
+const Home = ({ session }) => {
   if (session.user) {
-    return <MyProfile />
+    return <MyProfile />;
   }
 
   return (
@@ -23,6 +24,10 @@ function Home({ session }) {
       </div>
     </div>
   );
+};
+
+Home.propTypes = {
+  session: userPropType.isRequired,
 };
 
 const mapStateToProps = ({ session }) => ({
