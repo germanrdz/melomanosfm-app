@@ -15,7 +15,7 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-  switch(action.type) {
+  switch (action.type) {
     case LOGIN_SUCCESS:
       return {
         ...state,
@@ -27,7 +27,6 @@ export default function reducer(state = initialState, action) {
         headers: { token: action.token },
       };
     case LOGOUT_USER:
-      console.log('asdasdasd');
       return {
         headers: '',
         user: null,
@@ -42,7 +41,7 @@ export function updateToken(token) {
   return {
     type: TOKEN_UPDATED,
     token,
-  }
+  };
 }
 
 export function loginSuccess(user) {
@@ -55,8 +54,5 @@ export function loginSuccess(user) {
 export function logoutUser() {
   return {
     type: LOGOUT_USER,
-  }
+  };
 }
-
-// Epics
-
