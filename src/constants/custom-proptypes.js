@@ -9,3 +9,36 @@ export const userPropType = PropTypes.shape({
   spotifyId: PropTypes.string,
   spotifyUrl: PropTypes.string,
 });
+
+export const playlistPropType = PropTypes.shape({
+  collaborative: PropTypes.bool,
+  external_urls: PropTypes.shape({
+    spotify: PropTypes.string,
+  }),
+  href: PropTypes.string,
+  id: PropTypes.string,
+  images: PropTypes.arrayOf(PropTypes.shape({
+    height: PropTypes.string,
+    url: PropTypes.string,
+    width: PropTypes.string,
+  })),
+  name: PropTypes.string,
+  owner: PropTypes.shape({
+    display_name: PropTypes.string,
+    external_urls: PropTypes.shape({
+      spotify: PropTypes.string,
+    }),
+    href: PropTypes.string,
+    id: PropTypes.string,
+    type: PropTypes.string,
+    uri: PropTypes.string,
+  }),
+  primary_color: PropTypes.string,
+  snapshot_id: PropTypes.string,
+  tracks: PropTypes.shape({
+    href: PropTypes.string,
+    total: PropTypes.number,
+  }),
+  type: PropTypes.string,
+  uri: PropTypes.string,
+});

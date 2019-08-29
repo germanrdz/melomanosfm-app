@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { playlistPropType } from '../../constants/custom-proptypes';
 import './playlists.scss';
 
 const Playlists = ({ playlists }) => (
@@ -17,6 +19,10 @@ const Playlists = ({ playlists }) => (
     </ul>
   </div>
 );
+
+Playlists.propTypes = {
+  playlists: PropTypes.arrayOf(playlistPropType).isRequired,
+};
 
 const mapStateToProps = ({ spotify }) => ({
   playlists: spotify.playlists,
