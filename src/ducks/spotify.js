@@ -6,8 +6,10 @@ import ApiClient from '../services/api';
 
 // Actions
 export const FETCH_ERROR = 'spotify/FETCH_ERROR';
-export const GET_PLAYLISTS = 'spotify/GET_PLAYLISTS';
-export const GET_PLAYLISTS_SUCCESS = 'spotify/GET_PLAYLISTS_SUCCESS';
+export const GET_MY_PLAYLISTS = 'spotify/GET_PLAYLISTS';
+export const GET_MY_PLAYLISTS_SUCCESS = 'spotify/GET_PLAYLISTS_SUCCESS';
+export const GET_MY_TOP_ARTISTS = 'spotify/GET_TOP_ARTISTS';
+export const GET_MY_TOP_ARTISTS_SUCCESS = 'spotify/GET_TOP_ARTISTS_SUCCESS';
 
 // Reducer
 const initialState = {
@@ -16,7 +18,7 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case GET_PLAYLISTS_SUCCESS:
+    case GET_MY_PLAYLISTS_SUCCESS:
       return {
         ...state,
         playlists: action.playlists,
@@ -26,30 +28,42 @@ export default function reducer(state = initialState, action) {
   }
 }
 
-// Actions Creators
-export function fetchError() {
-  return { type: FETCH_ERROR };
-}
+// Global Action Creators
+export const fetchError = () => ({
+  type: FETCH_ERROR,
+});
 
-export function getPlaylists() {
-  return {
-    type: GET_PLAYLISTS,
-  };
-}
+// Playlists Action Creators
+export const getMyPlaylists = () => ({
+  type: GET_MY_PLAYLISTS,
+});
 
-export function getPlaylistsSuccess(playlists) {
-  return {
-    type: GET_PLAYLISTS_SUCCESS,
-    playlists,
-  };
-}
+export const getMyPlaylistsSuccess = (playlists) => ({
+  type: GET_MY_PLAYLISTS_SUCCESS,
+  playlists,
+});
+
+// Top Artists Action Creators
+export const getMyTopArtistsSuccess = (topArtists) => ({
+  type: GET_MY_TOP_ARTISTS_SUCCESS,
+  topArtists,
+});
 
 // Epics
 export const getPlaylistsEpic = (action$) => action$.pipe(
-  ofType(GET_PLAYLISTS),
+  ofType(GET_MY_PLAYLISTS),
   mergeMap(() => ApiClient.get('/spotify/my-playlists')
     .pipe(
-      map((response) => getPlaylistsSuccess(response.data.items)),
+      map((response) => getMyPlaylistsSuccess(response.data.items)),
+    )),
+  catchError((error) => of(fetchError(error))),
+);
+
+export const getTopArtists = (action$) => action$.pipe(
+  ofType(GET_MY_TOP_ARTISTS),
+  mergeMap(() => ApiClient.get('/spotify/my-top-artists')
+    .pipe(
+      map((response) => getMyTopArtistsSuccess(response.data.items)),
     )),
   catchError((error) => of(fetchError(error))),
 );
