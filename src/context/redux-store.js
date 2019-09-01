@@ -9,7 +9,8 @@ const rootReducer = ducksReducer({ session, spotify });
 const epicMiddleware = createEpicMiddleware();
 
 const rootEpic = combineEpics(
-  spotify.getPlaylistsEpic,
+  spotify.getMyPlaylistsEpic,
+  spotify.getMyTopArtistsEpic,
 );
 
 // eslint-disable-next-line no-underscore-dangle

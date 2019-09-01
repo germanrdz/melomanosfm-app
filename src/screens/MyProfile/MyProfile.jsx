@@ -4,14 +4,16 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { userPropType } from '../../constants/custom-proptypes';
-import { getMyPlaylists } from '../../ducks/spotify';
+import { getMyPlaylists, getMyTopArtists } from '../../ducks/spotify';
 import Playlists from '../../components/Playlists/Playlists';
+import TopArtists from '../../components/TopArtists/TopArtists';
 
 import './my-profile.scss';
 
-const MyProfile = ({ user, getMyPlaylistsAction }) => {
+const MyProfile = ({ user, getMyPlaylistsAction, getMyTopArtistsAction }) => {
   useEffect(() => {
     getMyPlaylistsAction();
+    getMyTopArtistsAction();
   }, []);
 
   return (
@@ -39,9 +41,14 @@ const MyProfile = ({ user, getMyPlaylistsAction }) => {
         </ul>
       </div>
 
-      <div className="playlists mt-5">
+      <div className="my-playlists mt-4">
         <h2>My Playlists</h2>
         <Playlists />
+      </div>
+
+      <div className="my-top-artists mt-4">
+        <h2>My Top Artists</h2>
+        <TopArtists />
       </div>
     </div>
   );
@@ -49,6 +56,8 @@ const MyProfile = ({ user, getMyPlaylistsAction }) => {
 
 MyProfile.propTypes = {
   getMyPlaylistsAction: PropTypes.func.isRequired,
+  getMyTopArtistsAction: PropTypes.func.isRequired,
+
   user: userPropType.isRequired,
 };
 
@@ -58,4 +67,5 @@ const mapStateToProps = ({ session }) => ({
 
 export default connect(mapStateToProps, {
   getMyPlaylistsAction: getMyPlaylists,
+  getMyTopArtistsAction: getMyTopArtists,
 })(MyProfile);

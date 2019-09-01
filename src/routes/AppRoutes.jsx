@@ -18,7 +18,6 @@ function HomeRoutes() {
   return (
     <Router>
       <Header />
-
       <Container>
         <Switch>
           <Route path="/" exact component={Home} />
@@ -31,10 +30,9 @@ function HomeRoutes() {
           <Redirect from="*" to="/" />
         </Switch>
       </Container>
-
       <Footer />
     </Router>
-  )
+  );
 }
 
 export default HomeRoutes;

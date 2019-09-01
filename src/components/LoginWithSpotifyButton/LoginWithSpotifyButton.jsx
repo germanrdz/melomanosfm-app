@@ -13,7 +13,7 @@ const LoginWithSpotifyButton = () => (
     onClick={handleOnClick}
   >
     <FaSpotify className="mr-2" />
-      Inicia sesión con tu cuenta de Spotify
+      Inicia sesión con Spotify
   </Button>
 );
 

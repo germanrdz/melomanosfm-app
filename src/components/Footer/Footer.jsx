@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap';
 import './footer.scss';
 
 const Footer = () => (
-  <div className="footer position-absolute">
+  <div className="footer">
     <Container className="d-md-flex justify-content-md-between">
       <div>
         <small className="text-muted pr-1">MelomanosFM</small>
