@@ -8,7 +8,6 @@ import {
 } from 'react-router-dom';
 
 import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
 import Home from '../screens/Home/Home';
 
 import AuthSuccess from '../components/Auth/AuthSuccess';
@@ -30,7 +29,6 @@ function HomeRoutes() {
           <Redirect from="*" to="/" />
         </Switch>
       </Container>
-      <Footer />
     </Router>
   );
 }
