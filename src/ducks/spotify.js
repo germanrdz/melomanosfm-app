@@ -77,11 +77,20 @@ export const getMyPlaylistsEpic = (action$) => action$.pipe(
   catchError((error) => of(fetchError(error))),
 );
 
+
 export const getMyTopArtistsEpic = (action$) => action$.pipe(
   ofType(GET_MY_TOP_ARTISTS),
   mergeMap(() => ApiClient.get('/spotify/my-top-artists')
     .pipe(
-      map((response) => getMyTopArtistsSuccess(response.data.items)),
+      map((response) => {
+        const topArtists = response.data.items.map((item) => ({
+          id: item.id,
+          name: item.name,
+          image: item.images[0].url,
+          url: item.external_urls.spotify,
+        }));
+        return getMyTopArtistsSuccess(topArtists);
+      }),
     )),
   catchError((error) => of(fetchError(error))),
 );

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { gridCell } from '../../constants/custom-proptypes';
+import { gridCellPropType } from '../../constants/custom-proptypes';
 import Grid from '../Grid/Grid';
 
 const Playlists = ({ playlists }) => (
@@ -12,7 +12,7 @@ const Playlists = ({ playlists }) => (
 );
 
 Playlists.propTypes = {
-  playlists: PropTypes.arrayOf(gridCell).isRequired,
+  playlists: PropTypes.arrayOf(gridCellPropType).isRequired,
 };
 
 const mapStateToProps = ({ spotify }) => ({

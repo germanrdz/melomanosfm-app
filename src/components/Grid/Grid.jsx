@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import GridCell from './GridCell';
-import { gridCell } from '../../constants/custom-proptypes';
+import { gridCellPropType } from '../../constants/custom-proptypes';
 import './grid.scss';
 
 const Grid = ({ items }) => (
@@ -18,7 +18,7 @@ Grid.defaultProps = {
 };
 
 Grid.propTypes = {
-  items: PropTypes.arrayOf(gridCell),
+  items: PropTypes.arrayOf(gridCellPropType),
 };
 
 export default Grid;

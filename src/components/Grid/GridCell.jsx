@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { gridCell } from '../../constants/custom-proptypes';
+import { gridCellPropType } from '../../constants/custom-proptypes';
 import './grid-cell.scss';
 
 const GridCell = ({ item }) => (
@@ -11,7 +11,7 @@ const GridCell = ({ item }) => (
 );
 
 GridCell.propTypes = {
-  item: gridCell.isRequired,
+  item: gridCellPropType.isRequired,
 };
 
 export default GridCell;

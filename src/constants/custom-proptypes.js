@@ -10,7 +10,7 @@ export const userPropType = PropTypes.shape({
   spotifyUrl: PropTypes.string,
 });
 
-export const gridCell = PropTypes.shape({
+export const gridCellPropType = PropTypes.shape({
   id: PropTypes.string,
   name: PropTypes.string,
   image: PropTypes.string,
