@@ -1,19 +1,29 @@
 /*! `Custom` Bootstrap 4 theme */
-@import url(https://fonts.googleapis.com/css?family=Nunito:200,300,400,700);
-$headings-font-family:Nunito;
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+$headings-font-family:Montserrat;
 
-$enable-grid-classes:true;
-$primary:#2f3c48;
-$secondary:#6f7f8c;
-$success:#3e4d59;
-$danger:#cc330d;
-$info:#5c8f94;
-$warning:#6e9fa5;
-$light:#eceeec;
-$dark:#1e2b37;
-$enable-gradients:false;
-$spacer:1.2rem;
-$border-width:3px;
-$btn-border-radius:0;
+$enable-grid-classes: true;
+$primary: #20d760;
+$secondary: #6f7f8c;
+$success: #3e4d59;
+$danger: #cc330d;
+$info: #5c8f94;
+$warning: #6e9fa5;
+$light: #eceeec;
+$dark: #090b12;
+$enable-gradients: false;
+$spacer: 1.2rem;
+$border-width: 3px;
+$btn-border-radius: 0;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
+
+
+body {
+  background: #090b12;
+  color: #FFFFFF;
+}
+
+a {
+  text-decoration: none;
+}

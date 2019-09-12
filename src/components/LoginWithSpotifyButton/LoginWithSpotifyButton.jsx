@@ -8,7 +8,7 @@ const handleOnClick = () => {
 
 const LoginWithSpotifyButton = () => (
   <Button
-    variant="info"
+    variant="primary"
     size="lg"
     onClick={handleOnClick}
   >

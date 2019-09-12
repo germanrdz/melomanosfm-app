@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FiHeadphones } from 'react-icons/fi';
+import {
+  Container,
+  Nav,
+  Navbar,
+  NavDropdown,
+} from 'react-bootstrap';
 
+import Avatar from '../Avatar/Avatar';
 import { userPropType } from '../../constants/custom-proptypes';
 import { logoutUser } from '../../ducks/session';
 import { storage } from '../../services/storage';
@@ -19,33 +25,25 @@ const Header = ({ user, logoutUserAction }) => {
 
   return (
     <div id="header" className="mb-4">
-      <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand className="mr-4">
             <Link to="/">
               <FiHeadphones className="mr-1" />
-              <h4>MelomanosFM</h4>
             </Link>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
-            <Nav>
-              {
-                user
-                && (
-                  <Navbar.Text>
-                    <strong>{user.name}</strong>
-                    <img className="ml-1 rounded-circle" height="20" src={user.image} alt={user.name} />
-                    <small>
-                      <Nav.Link onClick={logoutClickHandler}>
-                        (Logout)
-                      </Nav.Link>
-                    </small>
-                  </Navbar.Text>
-                )
-              }
-            </Nav>
-          </Navbar.Collapse>
+          {
+            user
+            && (
+              <Nav>
+                <NavDropdown className="dropleft" title={<Avatar user={user} height={20} />}>
+                  <NavDropdown.Item>{user.name}</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item onClick={logoutClickHandler}>Logout</NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
+            )
+          }
         </Container>
       </Navbar>
     </div>
