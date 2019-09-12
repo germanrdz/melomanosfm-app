@@ -37,9 +37,9 @@ const Header = ({ user, logoutUserAction }) => {
             && (
               <Nav>
                 <NavDropdown className="dropleft" title={<Avatar user={user} height={20} />}>
-                  <NavDropdown.Item>{user.name}</NavDropdown.Item>
+                  <NavDropdown.Item disabled>{user.name}</NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item onClick={logoutClickHandler}>Logout</NavDropdown.Item>
+                  <NavDropdown.Item onClick={logoutClickHandler}>Cerrar Sesión</NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             )

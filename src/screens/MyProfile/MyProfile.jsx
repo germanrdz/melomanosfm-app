@@ -18,35 +18,17 @@ const MyProfile = ({ user, getMyPlaylistsAction, getMyTopArtistsAction }) => {
 
   return (
     <div id="my-profile">
-      <h1>My Profile</h1>
-      <img src={user.image} className="picture" alt={user.name} />
-      <div className="info">
-        <ul>
-          <li>
-            <strong>Display name:</strong>
-            <span>{user.name}</span>
-          </li>
-          <li>
-            <strong>Id:</strong>
-            <span>{user.spotifyId}</span>
-          </li>
-          <li>
-            <strong>Email:</strong>
-            <span>{user.email}</span>
-          </li>
-          <li>
-            <strong>Spotify URI:</strong>
-            <span><a href={user.spotifyUrl}>{user.spotifyUrl}</a></span>
-          </li>
-        </ul>
+      <div className="text-center">
+        <img src={user.image} className="picture" alt={user.name} />
+        <h1>{user.name}</h1>
       </div>
 
-      <div className="my-playlists mt-4">
+      <div className="my-playlists mt-5">
         <h2>My Playlists</h2>
         <Playlists />
       </div>
 
-      <div className="my-top-artists mt-4">
+      <div className="my-top-artists mt-5">
         <h2>My Top Artists</h2>
         <TopArtists />
       </div>
