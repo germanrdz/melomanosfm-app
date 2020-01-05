@@ -6,8 +6,9 @@ const styles = css`
 
   body {
     font-family: Montserrat;
+    font-size: 16px;
     background: #090b12;
-    color: #FFFFFF;
+    color: #FFF;
   }
 
   a {

@@ -12,7 +12,7 @@ import {
 
 import Avatar from '../Avatar/Avatar';
 import { userPropType } from '../../constants/custom-proptypes';
-import { logoutUser } from '../../ducks/session';
+import { logoutUser } from '../../redux/session';
 import { storage } from '../../services/storage';
 
 import './header.scss';

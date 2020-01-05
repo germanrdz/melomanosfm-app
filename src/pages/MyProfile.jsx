@@ -3,10 +3,10 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { userPropType } from '../../constants/custom-proptypes';
-import { getMyPlaylists, getMyTopArtists } from '../../ducks/spotify';
-import Playlists from '../../components/Playlists/Playlists';
-import TopArtists from '../../components/TopArtists/TopArtists';
+import { userPropType } from '../constants/custom-proptypes';
+import { getMyPlaylists, getMyTopArtists } from '../redux/spotify';
+import Playlists from '../components/Playlists/Playlists';
+import TopArtists from '../components/TopArtists/TopArtists';
 
 // import './my-profile.scss';
 

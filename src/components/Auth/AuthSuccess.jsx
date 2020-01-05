@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import decode from 'jwt-decode';
 
 import { storage } from '../../services/storage';
-import { loginSuccess, updateToken } from '../../ducks/session';
+import { loginSuccess, updateToken } from '../../redux/session';
 
 const AuthSuccess = ({ match, loginSuccessAction, updateTokenAction }) => {
   useEffect(() => {
