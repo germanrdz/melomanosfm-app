@@ -4,18 +4,15 @@ import { Provider } from 'react-redux';
 
 import AppRoutes from './routes/AppRoutes';
 import reduxStore from './context/redux-store';
-
-import './bootstrap-custom.scss';
-import './global.scss';
+import GlobalStyle from './styled/GlobalStyle';
 
 require('dotenv').config();
 
-function App() {
-  return (
-    <Provider store={reduxStore}>
-      <AppRoutes />
-    </Provider>
-  );
-}
+const App = () => (
+  <Provider store={reduxStore}>
+    <GlobalStyle />
+    <AppRoutes />
+  </Provider>
+);
 
 export default App;

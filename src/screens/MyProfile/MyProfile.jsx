@@ -8,7 +8,7 @@ import { getMyPlaylists, getMyTopArtists } from '../../ducks/spotify';
 import Playlists from '../../components/Playlists/Playlists';
 import TopArtists from '../../components/TopArtists/TopArtists';
 
-import './my-profile.scss';
+// import './my-profile.scss';
 
 const MyProfile = ({ user, getMyPlaylistsAction, getMyTopArtistsAction }) => {
   useEffect(() => {

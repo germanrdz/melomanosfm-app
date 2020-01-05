@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import LoginWithSpotifyButton from '../../components/LoginWithSpotifyButton/LoginWithSpotifyButton';
 import MyProfile from '../MyProfile/MyProfile';
 import { userPropType } from '../../constants/custom-proptypes';
-import './home.scss';
+// import './home.scss';
 
 const Home = ({ session }) => {
   if (session.user) {
