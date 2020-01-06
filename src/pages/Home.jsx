@@ -12,13 +12,14 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-
   text-align: center;
 `;
 
 const Title = styled.h1`
   font-size: 3em;
   margin-bottom: 0;
+
+  margin-top: -20%;
 `;
 
 const Subtitle = styled.p`

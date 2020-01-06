@@ -6,7 +6,7 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import Header from '../components/Header/Header';
+import Header from '../components/Header';
 import Home from '../pages/Home';
 
 import AuthSuccess from '../components/Auth/AuthSuccess';

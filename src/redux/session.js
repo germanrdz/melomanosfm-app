@@ -53,3 +53,4 @@ export const logoutUser = () => ({
 
 // Selectors
 export const getSession = state => state.session;
+export const getUser = state => state.session.user;
