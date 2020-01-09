@@ -1,0 +1,35 @@
+version: 2.1
+
+jobs:
+  test:
+    working_directory: ~/melomanosfm-app
+    docker:
+      - image: circleci/node:12.11.0
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Installing dependencies
+          command: |
+            npm install
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+      - run:
+          name: Running Tests
+          command: |
+            cp -v .env.example .env
+            ./cc-test-reporter before-build
+            yarn test --coverage
+            ./cc-test-reporter after-build -t lcov --exit-code $?
+      - store_artifacts:
+          path: coverage
+
+workflows:
+  version: 2
+
+  workflow:
+    jobs:
+      - test
