@@ -5,9 +5,7 @@ import { useSelector } from 'react-redux';
 import Grid from '../Grid/Grid';
 import { getPlaylists } from '../../redux/spotify';
 
-const Container = styled.div`
-  text-align: center;
-`;
+const Container = styled.div``;
 
 const Playlists = () => {
   const playlists = useSelector(getPlaylists);

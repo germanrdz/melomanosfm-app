@@ -13,6 +13,7 @@ export const GET_MY_TOP_ARTISTS_SUCCESS = 'spotify/GET_TOP_ARTISTS_SUCCESS';
 
 // Selectors
 export const getPlaylists = state => state.spotify.playlists;
+export const getTopArtists = state => state.spotify.topArtists;
 
 // Reducer
 const initialState = {

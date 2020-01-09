@@ -35,11 +35,11 @@ const MyProfile = () => {
         <Title>{user.name}</Title>
       </Profile>
 
-      <h2>My Playlists</h2>
-      <Playlists />
-
       <h2>My Top Artists</h2>
       <TopArtists />
+
+      <h2>My Playlists</h2>
+      <Playlists />
     </Container>
   );
 };
