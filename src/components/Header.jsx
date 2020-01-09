@@ -1,16 +1,17 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { FiHeadphones } from 'react-icons/fi';
-import { logoutUser, getUser } from '../redux/session';
-import { storage } from '../services/storage';
+import { getUser } from '../redux/session';
 import Avatar from './Avatar';
+import Toggle from './shared/Toggle';
+import HeaderMenu from './HeaderMenu';
 
 const Container = styled.div`
   display: flex;
-  font-size: 1.3em;
+  justify-content: space-between;
 
   padding: 0.5em 0;
   margin-bottom: 0.5em;
@@ -20,26 +21,25 @@ const Container = styled.div`
   }
 `;
 
+const Logo = styled.div`
+  font-size: 30px;
+`;
+
 const Header = () => {
   const user = useSelector(getUser);
-  const dispatch = useDispatch();
-
-  const logoutClickHandler = () => {
-    storage.clear();
-    dispatch(logoutUser());
-  };
 
   return (
     <Container>
-      <Link to="/">
-        <FiHeadphones />
-      </Link>
+      <Logo>
+        <Link to="/">
+          <FiHeadphones />
+        </Link>
+      </Logo>
       {
         user && (
-          <>
-            <Avatar user={user} height={20} />
-            <Link onClick={logoutClickHandler}>logout</Link>
-          </>
+          <Toggle content={<HeaderMenu user={user} />}>
+            <Avatar user={user} height={30} />
+          </Toggle>
         )
       }
     </Container>

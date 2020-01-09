@@ -1,53 +1,47 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import styled from '@emotion/styled';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { userPropType } from '../constants/custom-proptypes';
 import { getMyPlaylists, getMyTopArtists } from '../redux/spotify';
 import Playlists from '../components/Playlists/Playlists';
 import TopArtists from '../components/TopArtists/TopArtists';
+import { getUser } from '../redux/session';
+import Avatar from '../components/Avatar';
 
-// import './my-profile.scss';
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
-const MyProfile = ({ user, getMyPlaylistsAction, getMyTopArtistsAction }) => {
+const Profile = styled.div`
+  text-align: center;
+`;
+
+const Title = styled.h1``;
+
+const MyProfile = () => {
+  const dispatch = useDispatch();
+  const user = useSelector(getUser);
+
   useEffect(() => {
-    getMyPlaylistsAction();
-    getMyTopArtistsAction();
-  }, []);
+    dispatch(getMyPlaylists());
+    dispatch(getMyTopArtists());
+  }, [dispatch]);
 
   return (
-    <div id="my-profile">
-      <div className="text-center">
-        <img src={user.image} className="picture" alt={user.name} />
-        <h1>{user.name}</h1>
-      </div>
+    <Container>
+      <Profile>
+        <Avatar user={user} height={200} />
+        <Title>{user.name}</Title>
+      </Profile>
 
-      <div className="my-playlists mt-5">
-        <h2>My Playlists</h2>
-        <Playlists />
-      </div>
+      <h2>My Playlists</h2>
+      <Playlists />
 
-      <div className="my-top-artists mt-5">
-        <h2>My Top Artists</h2>
-        <TopArtists />
-      </div>
-    </div>
+      <h2>My Top Artists</h2>
+      <TopArtists />
+    </Container>
   );
 };
 
-MyProfile.propTypes = {
-  getMyPlaylistsAction: PropTypes.func.isRequired,
-  getMyTopArtistsAction: PropTypes.func.isRequired,
-
-  user: userPropType.isRequired,
-};
-
-const mapStateToProps = ({ session }) => ({
-  user: session.user,
-});
-
-export default connect(mapStateToProps, {
-  getMyPlaylistsAction: getMyPlaylists,
-  getMyTopArtistsAction: getMyTopArtists,
-})(MyProfile);
+export default MyProfile;

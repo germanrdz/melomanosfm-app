@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import { Provider } from 'react-redux';
 
 import AppRoutes from './routes/AppRoutes';
@@ -7,10 +8,17 @@ import GlobalStyle from './components/styled/GlobalStyle';
 
 require('dotenv').config();
 
+const Container = styled.div`
+  padding: 0px 20px 0;
+  width: calc(100% - 40px);
+`;
+
 const App = () => (
   <Provider store={reduxStore}>
     <GlobalStyle />
-    <AppRoutes />
+    <Container>
+      <AppRoutes />
+    </Container>
   </Provider>
 );
 
