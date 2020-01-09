@@ -7,10 +7,10 @@ const Grid = styled.div`
   margin-bottom: 1em;
 
   ${({ columns }) =>
-    columns && css`
+    columns &&
+    css`
       grid-template-columns: repeat(${columns}, minmax(0, 1fr));
-    `
-  }
+    `}
 `;
 
 export default Grid;
