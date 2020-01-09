@@ -2,8 +2,8 @@ import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 
 const Button = styled.button`
-  border-radius: 1rem;
-  padding: 1em 2em;
+  border-radius: 0.5em;
+  padding: 0.8em 1.5em;
   outline: none;
 
   ${({ block }) =>

@@ -1,7 +1,7 @@
 import React from 'react';
-
-import { PrimaryButton } from '../components/styled/Button';
 import { FaSpotify } from 'react-icons/fa';
+
+import { PrimaryButton } from './styled/Button';
 
 const handleOnClick = () => {
   window.location.href = `${process.env.REACT_APP_API_URL}/auth/spotify/login`;

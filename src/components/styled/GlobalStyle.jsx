@@ -8,14 +8,18 @@ const styles = css`
     font-family: Montserrat;
     font-size: 16px;
     background: #090b12;
-    color: #FFF;
+    color: #fff;
   }
 
   a {
     text-decoration: none;
   }
+
+  button {
+    font-size: 1rem;
+  }
 `;
 
-const GlobalStyle = () => (<Global styles={styles} />);
+const GlobalStyle = () => <Global styles={styles} />;
 
 export default GlobalStyle;
