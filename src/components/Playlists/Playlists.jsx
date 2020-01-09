@@ -1,25 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import styled from '@emotion/styled';
+import { useSelector } from 'react-redux';
 
-import { gridCellPropType } from '../../constants/custom-proptypes';
 import Grid from '../Grid/Grid';
+import { getPlaylists } from '../../redux/spotify';
 
-const Playlists = ({ playlists }) => (
-  <div className="playlists">
-    { playlists && <Grid items={playlists} /> }
-  </div>
-);
+const Container = styled.div``;
 
-Playlists.propTypes = {
-  playlists: PropTypes.arrayOf(gridCellPropType).isRequired,
+const Playlists = () => {
+  const playlists = useSelector(getPlaylists);
+  return <Container>{playlists && <Grid items={playlists} />}</Container>;
 };
 
-const mapStateToProps = ({ spotify }) => ({
-  playlists: spotify.playlists,
-});
-
-export default connect(
-  mapStateToProps,
-  {},
-)(Playlists);
+export default Playlists;

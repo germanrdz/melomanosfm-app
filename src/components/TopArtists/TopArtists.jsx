@@ -1,25 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import { gridCellPropType } from '../../constants/custom-proptypes';
 import Grid from '../Grid/Grid';
+import { getTopArtists } from '../../redux/spotify';
 
-const TopArtists = ({ topArtists }) => (
-  <div className="top-artists">
-    <Grid items={topArtists} />
-  </div>
-);
+const TopArtists = () => {
+  const topArtists = useSelector(getTopArtists);
 
-TopArtists.propTypes = {
-  topArtists: PropTypes.arrayOf(gridCellPropType).isRequired,
+  return (
+    <div className="top-artists">
+      <Grid items={topArtists} />
+    </div>
+  );
 };
 
-const mapStateToProps = ({ spotify }) => ({
-  topArtists: spotify.topArtists,
-});
-
-export default connect(
-  mapStateToProps,
-  {},
-)(TopArtists);
+export default TopArtists;

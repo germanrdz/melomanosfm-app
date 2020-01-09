@@ -2,8 +2,8 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import { createEpicMiddleware, combineEpics } from 'redux-observable';
 import ducksReducer from 'ducks-reducer';
 
-import * as session from '../ducks/session';
-import * as spotify from '../ducks/spotify';
+import * as session from '../redux/session';
+import * as spotify from '../redux/spotify';
 
 const rootReducer = ducksReducer({ session, spotify });
 const epicMiddleware = createEpicMiddleware();

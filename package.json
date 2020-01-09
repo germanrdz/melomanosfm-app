@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
     "axios": "^0.19.0",
     "axios-observable": "^1.1.2",
     "bootstrap": "^4.3.1",
     "dotenv": "^8.1.0",
     "ducks-reducer": "^1.0.4",
+    "emotion": "^10.0.27",
     "jwt-decode": "^2.2.0",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
@@ -43,5 +46,31 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "7.6.2",
+    "@storybook/react": "5.2.1",
+    "@testing-library/jest-dom": "^4.1.2",
+    "@testing-library/react": "^9.3.0",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "8.0.6",
+    "babel-plugin-styled-components": "1.8.0",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-import-resolver-webpack": "^0.11.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "faker": "^4.1.0",
+    "jest-canvas-mock": "^2.1.2",
+    "jest-svg-transformer": "^1.0.0",
+    "prettier": "^1.18.2",
+    "react-testing-library": "^8.0.1",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-mock-store": "^1.5.3"
   }
 }

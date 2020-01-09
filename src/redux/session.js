@@ -37,22 +37,20 @@ export default function reducer(state = initialState, action) {
 }
 
 // Action Creators
-export function updateToken(token) {
-  return {
-    type: TOKEN_UPDATED,
-    token,
-  };
-}
+export const updateToken = token => ({
+  type: TOKEN_UPDATED,
+  token,
+});
 
-export function loginSuccess(user) {
-  return {
-    type: LOGIN_SUCCESS,
-    user,
-  };
-}
+export const loginSuccess = user => ({
+  type: LOGIN_SUCCESS,
+  user,
+});
 
-export function logoutUser() {
-  return {
-    type: LOGOUT_USER,
-  };
-}
+export const logoutUser = () => ({
+  type: LOGOUT_USER,
+});
+
+// Selectors
+export const getSession = state => state.session;
+export const getUser = state => state.session.user;

@@ -1,15 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import decode from 'jwt-decode';
 
 import { storage } from '../../services/storage';
-import { loginSuccess, updateToken } from '../../ducks/session';
+import { loginSuccess, updateToken } from '../../redux/session';
 
-const AuthSuccess = ({ match, loginSuccessAction, updateTokenAction }) => {
+const AuthSuccess = ({ match }) => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    const token = match.params.token;
+    const { token } = match.params;
     const user = decode(token);
 
     storage.headers = {
@@ -17,17 +20,17 @@ const AuthSuccess = ({ match, loginSuccessAction, updateTokenAction }) => {
     };
     storage.user = user;
 
-    loginSuccessAction(user);
-    updateTokenAction(token);
-  }, []);
+    dispatch(loginSuccess(user));
+    dispatch(updateToken(token));
+  }, [dispatch]);
 
-  return (<Redirect to="/" />);
+  return <Redirect to="/" />;
 };
 
-export default connect(
-  null,
-  {
-    loginSuccessAction: loginSuccess,
-    updateTokenAction: updateToken,
-  },
-)(AuthSuccess);
+AuthSuccess.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.object,
+  }).isRequired,
+};
+
+export default AuthSuccess;

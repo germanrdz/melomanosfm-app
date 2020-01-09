@@ -1,21 +1,25 @@
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
+import styled from '@emotion/styled';
 import { Provider } from 'react-redux';
 
 import AppRoutes from './routes/AppRoutes';
 import reduxStore from './context/redux-store';
-
-import './bootstrap-custom.scss';
-import './global.scss';
+import GlobalStyle from './components/styled/GlobalStyle';
 
 require('dotenv').config();
 
-function App() {
-  return (
-    <Provider store={reduxStore}>
+const Container = styled.div`
+  padding: 0px 20px 0;
+  width: calc(100% - 40px);
+`;
+
+const App = () => (
+  <Provider store={reduxStore}>
+    <GlobalStyle />
+    <Container>
       <AppRoutes />
-    </Provider>
-  );
-}
+    </Container>
+  </Provider>
+);
 
 export default App;
